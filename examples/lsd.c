@@ -655,7 +655,7 @@ void train_prog(char *cfg, char *weight, char *acfg, char *aweight, int clear, i
         if (aloss_avg < 0) aloss_avg = aloss;
         aloss_avg = aloss_avg*.9 + aloss*.1;
 
-        printf("%d: adv: %f | adv_avg: %f, %f rate, %lf seconds, %d images\n", i, aloss, aloss_avg, get_current_rate(gnet), sec(clock()-time), i*imgs);
+        printf("12 - %d: adv: %f | adv_avg: %f, %f rate, %lf seconds, %d images\n", i, aloss, aloss_avg, get_current_rate(gnet), sec(clock()-time), i*imgs);
         if(i%10000==0){
             char buff[256];
             sprintf(buff, "%s/%s_%d.weights", backup_directory, base, i);
@@ -850,7 +850,7 @@ void train_dcgan(char *cfg, char *weight, char *acfg, char *aweight, int clear, 
         if (aloss_avg < 0) aloss_avg = aloss;
         aloss_avg = aloss_avg*.9 + aloss*.1;
 
-        printf("%d: adv: %f | adv_avg: %f, %f rate, %lf seconds, %d images\n", i, aloss, aloss_avg, get_current_rate(gnet), sec(clock()-time), i*imgs);
+        printf("13 - %d: adv: %f | adv_avg: %f, %f rate, %lf seconds, %d images\n", i, aloss, aloss_avg, get_current_rate(gnet), sec(clock()-time), i*imgs);
         if(i%10000==0){
             char buff[256];
             sprintf(buff, "%s/%s_%d.weights", backup_directory, base, i);
@@ -1022,7 +1022,7 @@ void train_colorizer(char *cfg, char *weight, char *acfg, char *aweight, int cle
         aloss_avg = aloss_avg*.9 + aloss*.1;
         gloss_avg = gloss_avg*.9 + gloss*.1;
 
-        printf("%d: gen: %f, adv: %f | gen_avg: %f, adv_avg: %f, %f rate, %lf seconds, %d images\n", i, gloss, aloss, gloss_avg, aloss_avg, get_current_rate(net), sec(clock()-time), i*imgs);
+        printf("14 - %d: gen: %f, adv: %f | gen_avg: %f, adv_avg: %f, %f rate, %lf seconds, %d images\n", i, gloss, aloss, gloss_avg, aloss_avg, get_current_rate(net), sec(clock()-time), i*imgs);
         if(i%1000==0){
             char buff[256];
             sprintf(buff, "%s/%s_%d.weights", backup_directory, base, i);

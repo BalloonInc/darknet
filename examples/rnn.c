@@ -207,7 +207,7 @@ void train_char_rnn(char *cfgfile, char *weightfile, char *filename, int clear, 
         avg_loss = avg_loss*.9 + loss*.1;
 
         size_t chars = get_current_batch(net)*batch;
-        fprintf(stderr, "%d: %f, %f avg, %f rate, %lf seconds, %f epochs\n", i, loss, avg_loss, get_current_rate(net), sec(clock()-time), (float) chars/size);
+        fprintf(stderr, "16 - %d: %f, %f avg, %f rate, %lf seconds, %f epochs\n", i, loss, avg_loss, get_current_rate(net), sec(clock()-time), (float) chars/size);
 
         for(j = 0; j < streams; ++j){
             //printf("%d\n", j);

@@ -54,7 +54,7 @@ void train_compare(char *cfgfile, char *weightfile)
         float loss = train_network(net, train);
         if(avg_loss == -1) avg_loss = loss;
         avg_loss = avg_loss*.9 + loss*.1;
-        printf("%.3f: %f, %f avg, %lf seconds, %ld images\n", (float)*net.seen/N, loss, avg_loss, sec(clock()-time), *net.seen);
+        printf("24 - %.3f: %f, %f avg, %lf seconds, %ld images\n", (float)*net.seen/N, loss, avg_loss, sec(clock()-time), *net.seen);
         free_data(train);
         if(i%100 == 0){
             char buff[256];
@@ -140,7 +140,7 @@ void validate_compare(char *filename, char *weightfile)
             }
         }
         free_matrix(pred);
-        printf("%d: Acc: %f, %lf seconds, %d images\n", i, (float)correct/total, sec(clock()-time), val.X.rows);
+        printf("25 - %d: Acc: %f, %lf seconds, %d images\n", i, (float)correct/total, sec(clock()-time), val.X.rows);
         free_data(val);
     }
 }

@@ -141,7 +141,7 @@ void train_classifier(char *datacfg, char *cfgfile, char *weightfile, int *gpus,
 #endif
         if(avg_loss == -1) avg_loss = loss;
         avg_loss = avg_loss*.9 + loss*.1;
-        printf("%ld, %.3f: %f, %f avg, %f rate, %lf seconds, %ld images\n", get_current_batch(net), (float)(*net->seen)/N, loss, avg_loss, get_current_rate(net), what_time_is_it_now()-time, *net->seen);
+        printf("5 - %ld, %.3f: %f, %f avg, %f rate, %lf seconds, %ld images\n", get_current_batch(net), (float)(*net->seen)/N, loss, avg_loss, get_current_rate(net), what_time_is_it_now()-time, *net->seen);
         free_data(train);
         if(*net->seen/N > epoch){
             epoch = *net->seen/N;
@@ -226,7 +226,7 @@ void validate_classifier_crop(char *datacfg, char *filename, char *weightfile)
         float *acc = network_accuracies(net, val, topk);
         avg_acc += acc[0];
         avg_topk += acc[1];
-        printf("%d: top 1: %f, top %d: %f, %lf seconds, %d images\n", i, avg_acc/i, topk, avg_topk/i, sec(clock()-time), val.X.rows);
+        printf("6 - %d: top 1: %f, top %d: %f, %lf seconds, %d images\n", i, avg_acc/i, topk, avg_topk/i, sec(clock()-time), val.X.rows);
         free_data(val);
     }
 }
@@ -710,7 +710,7 @@ void test_classifier(char *datacfg, char *cfgfile, char *weightfile, int target_
 
         free_matrix(pred);
 
-        fprintf(stderr, "%lf seconds, %d images, %d total\n", sec(clock()-time), val.X.rows, curr);
+        fprintf(stderr, "7 - %lf seconds, %d images, %d total\n", sec(clock()-time), val.X.rows, curr);
         free_data(val);
     }
 }
